@@ -1,0 +1,10 @@
+process.env.ADMIN_API_KEY = process.env.ADMIN_API_KEY ?? "test-admin-key";
+process.env.GMAIL_TO = process.env.GMAIL_TO ?? "test@example.com";
+process.env.GMAIL_FROM = process.env.GMAIL_FROM ?? "Polaroid Orders <test@example.com>";
+process.env.GMAIL_USER = process.env.GMAIL_USER ?? "test@example.com";
+process.env.GMAIL_APP_PASSWORD = process.env.GMAIL_APP_PASSWORD ?? "password";
+process.env.APP_BASE_URL = process.env.APP_BASE_URL ?? "http://localhost:3000";
+process.env.MAX_UPLOAD_SIZE_MB = process.env.MAX_UPLOAD_SIZE_MB ?? "400";
+process.env.PRICE_2x3 = process.env.PRICE_2x3 ?? "1500";
+process.env.PRICE_3x4 = process.env.PRICE_3x4 ?? "2000";
+process.env.PRICE_4x6 = process.env.PRICE_4x6 ?? "2500";

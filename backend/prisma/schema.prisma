@@ -1,0 +1,49 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+enum OrderStatus {
+  RECEIVED
+  NOTIFIED
+  EMAILED
+  FAILED
+}
+
+enum PrintSize {
+  SMALL_2x3
+  MEDIUM_3x4
+  LARGE_4x6
+}
+
+model Order {
+  id               String      @id @default(cuid())
+  createdAt        DateTime    @default(now())
+  customerName     String
+  phone            String
+  email            String?
+  address          String
+  size             PrintSize
+  quantityPerPhoto Int
+  notes            String?
+  total            Int
+  status           OrderStatus @default(RECEIVED)
+  zipPath          String?
+  zipUrl           String?
+  fileCount        Int
+  files            OrderFile[]
+}
+
+model OrderFile {
+  id           String @id @default(cuid())
+  order        Order  @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  orderId      String
+  originalName String
+  storedPath   String
+  sizeBytes    Int
+  mimeType     String
+}
